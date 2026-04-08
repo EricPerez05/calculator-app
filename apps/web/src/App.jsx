@@ -9,6 +9,11 @@ const BUTTON_ROWS = [
 ];
 
 const OPERATOR_SET = new Set(["+", "-", "x", "÷", "%"]);
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.trim() ?? "";
+
+function getCalculateUrl() {
+  return API_BASE_URL.length > 0 ? `${API_BASE_URL}/calculate` : "/api/calculate";
+}
 
 function isOperator(value) {
   return OPERATOR_SET.has(value);
@@ -84,7 +89,7 @@ function App() {
 
     setError("");
     try {
-      const response = await fetch("/api/calculate", {
+      const response = await fetch(getCalculateUrl(), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
