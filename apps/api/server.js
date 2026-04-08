@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import { calculate } from "./calculator.js";
+import { calculate } from "@calc-app/calculator";
 
 const app = express();
 const port = process.env.PORT || 3001;
