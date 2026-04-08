@@ -10,7 +10,7 @@ applications:
           commands:
             - npm run build -w @calc-app/web
       artifacts:
-        baseDirectory: apps/web/dist
+        baseDirectory: dist
         files:
           - "**/*"
       cache:
